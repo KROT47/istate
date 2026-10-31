@@ -1,0 +1,82 @@
+{
+  "name": "@metamorph/istate",
+  "version": "0.1.0",
+  "description": "State factory with Zod validation, Valtio proxies, and a sync extension",
+  "license": "MIT",
+  "author": "KROT47",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KROT47/istate.git"
+  },
+  "type": "module",
+  "sideEffects": [
+    "./dist/react.js",
+    "./src/react.ts"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "import": "./dist/react.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "yarn@4.18.1",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint .",
+    "prepublishOnly": "yarn typecheck && yarn test && yarn build"
+  },
+  "dependencies": {
+    "fast-json-stable-stringify": "^2.1.0",
+    "proxy-memoize": "^3.0.1",
+    "shallowequal": "^1.1.0",
+    "tseep": "^1.3.1",
+    "valtio": "^1.13.2"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "zod": "^3.22.2"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/react": "^16.1.0",
+    "@types/node": "^22.10.5",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@types/shallowequal": "^1.1.5",
+    "@vitest/coverage-v8": "^3.0.5",
+    "eslint": "^9.17.0",
+    "hotscript": "^1.0.13",
+    "jsdom": "^26.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.19.1",
+    "vitest": "^3.0.5",
+    "zod": "^3.24.1"
+  }
+}
